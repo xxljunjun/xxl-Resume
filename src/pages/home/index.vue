@@ -1,21 +1,29 @@
 <template>
   <div class="home">
+    <!-- <img src="@/static/building_2.jpg" alt="" class="topimg" /> -->
     <!-- 头部导航栏 -->
     <div class="header">
       <div class="nav">
-        <div class="nav-left">
-          <div v-for="(item, index) in navArr" :key="index" class="item">
-            {{ item.name }}
+        <div class="nav-inner">
+          <div class="nav-left">
+            <div
+              v-for="(item, index) in navArr"
+              :key="index"
+              class="item"
+              @click="gotoPage(item.id)"
+            >
+              {{ item.name }}
+            </div>
           </div>
-        </div>
-        <div class="nav-right">
-          <div class="qq-box">
-            <img src="@/static/author.png" alt="" class="icon" />
-            <span class="qq">793117268@qq.com</span>
-          </div>
-          <div class="number-box">
-            <img src="@/static/author.png" alt="" class="icon" />
-            <span class="telephone">13286754697</span>
+          <div class="nav-right">
+            <div class="qq-box">
+              <img src="@/static/author.png" alt="" class="icon" />
+              <span class="qq">793117268@qq.com</span>
+            </div>
+            <div class="number-box">
+              <img src="@/static/author.png" alt="" class="icon" />
+              <span class="telephone">13286754697</span>
+            </div>
           </div>
         </div>
       </div>
@@ -49,7 +57,12 @@
     <div class="main">
       <div class="title">技能 skill</div>
       <div class="skill">
-        <div class="item" v-for="(item, index) in skillArr" :key="index">
+        <div
+          class="item"
+          v-for="(item, index) in skillArr"
+          :key="index"
+          :style="'color:' + item.color"
+        >
           {{ item.name }}
         </div>
       </div>
@@ -76,8 +89,11 @@
         <p>联系方式：13286754697</p>
         <p>QQ：793117268@qq.com</p>
         <p>邮箱：793117268@qq.com</p>
-        <p>gitHub地址：https://github.com/xxljunjun/</p>
-        <div></div>
+        <p class="lasttxt">gitHub地址：https://github.com/xxljunjun/</p>
+        <div class="thanks">
+          <div class="radioBox">Think You For Watch</div>
+          <div class="radioBox radioBox2"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -119,7 +135,32 @@ export default {
     }
   },
   mounted() {},
-  methods: {},
+  methods: {
+    gotoPage(id) {
+      //scrollIntoView的属性
+      let ele = ''
+      switch (id) {
+        case 1:
+          ele = document.getElementsByClassName('header-bottom')[0]
+          ele.scrollIntoView({ block: 'start', behavior: 'smooth' })
+          break
+        case 2:
+          ele = document.getElementsByClassName('box')[0]
+          ele.scrollIntoView({ block: 'start', behavior: 'smooth' })
+          break
+        case 3:
+          ele = document.getElementsByClassName('main')[0]
+          ele.scrollIntoView({ block: 'start', behavior: 'smooth' })
+          break
+        case 4:
+          ele = document.getElementsByClassName('bottom')[0]
+          ele.scrollIntoView({ block: 'start', behavior: 'smooth' })
+          break
+        default:
+          break
+      }
+    },
+  },
   components: {},
 }
 </script>
@@ -128,18 +169,32 @@ export default {
 .home {
   width: 1200px;
   color: #fff;
+  .topimg {
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+    height: 1000px;
+    top: 0;
+  }
   .header {
     width: 1200px;
     height: 490px;
     background: #595c8f;
-    padding: 0 160px;
     box-sizing: border-box;
     .nav {
+      position: fixed;
+      top: 0;
+      background: #595c8f;
+      width: 1200px;
+      z-index: 99;
+    }
+    .nav-inner {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
       height: 80px;
+      padding: 0 160px;
       .nav-left {
         display: flex;
         flex-direction: row;
@@ -172,7 +227,6 @@ export default {
           }
           .qq {
             color: #fff;
-            font-size: 14px;
           }
         }
         .number-box {
@@ -181,7 +235,6 @@ export default {
           align-items: center;
           .number {
             color: #fff;
-            font-size: 14px;
           }
           .icon {
             margin-right: 4px;
@@ -243,7 +296,7 @@ export default {
   }
   .main {
     width: 1200px;
-    height: 980px;
+    height: 1020px;
     background: #e3e4f8;
     position: relative;
     .title {
@@ -268,7 +321,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 30px;
+      margin-bottom: 60px;
       .item {
         margin-right: 25px;
         height: 90px;
@@ -352,12 +405,15 @@ export default {
   }
   .bottom {
     width: 1200px;
-    height: 380px;
-    background: #ccc;
+    height: 390px;
+    background: url(~@/static/building_2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1200px 390px;
+    // filter: blur(5px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    // justify-content: center;
     position: relative;
     .title {
       position: absolute;
@@ -367,10 +423,30 @@ export default {
       color: #595c8f;
     }
     .message {
-      margin-top: 100px;
+      margin-top: 70px;
       font-size: 26px;
       p {
         margin-bottom: 20px;
+      }
+      // .lasttxt {
+      //   margin-bottom: 0;
+      // }
+    }
+    .thanks {
+      position: relative;
+      .radioBox {
+        height: 90px;
+        width: 480px;
+        border-radius: 20px;
+        border: 1px dotted #fff;
+        text-align: center;
+        line-height: 90px;
+        font-size: 30px;
+      }
+      .radioBox2 {
+        position: absolute;
+        top: -12px;
+        left: 12px;
       }
     }
   }
