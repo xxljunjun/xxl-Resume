@@ -69,8 +69,9 @@
       </div>
       <div class="path">gitHub地址：https://github.com/xxljunjun/</div>
     </div>
+    <!-- 联系方式 -->
     <div class="bottom">
-      <div class="title">技能 skill</div>
+      <div class="title">最后的浮华只会迷乱你的眼</div>
       <div class="message">
         <p>联系方式：13286754697</p>
         <p>QQ：793117268@qq.com</p>
@@ -230,7 +231,7 @@ export default {
       left: 680px;
       font-size: 26px;
       .introduce {
-        margin: 10px 0 90px;
+        margin: 10px 0 80px;
         color: #595c8f;
       }
       .resume {
@@ -242,12 +243,13 @@ export default {
   }
   .main {
     width: 1200px;
-    height: 1000px;
+    height: 980px;
     background: #e3e4f8;
     position: relative;
     .title {
       position: absolute;
       left: 680px;
+      top: 10px;
       font-size: 26px;
       color: #595c8f;
     }
@@ -351,13 +353,25 @@ export default {
   .bottom {
     width: 1200px;
     height: 380px;
-    position: relative;
     background: #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+    position: relative;
     .title {
       position: absolute;
       left: 680px;
+      top: 10px;
       font-size: 26px;
       color: #595c8f;
+    }
+    .message {
+      margin-top: 100px;
+      font-size: 26px;
+      p {
+        margin-bottom: 20px;
+      }
     }
   }
 }
