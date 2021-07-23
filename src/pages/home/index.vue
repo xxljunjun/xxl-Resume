@@ -18,11 +18,11 @@
           <div class="nav-right">
             <div class="qq-box">
               <img src="@/static/author.png" alt="" class="icon" />
-              <span class="qq">793117268@qq.com</span>
+              <span class="qq">793***268@qq.com</span>
             </div>
             <div class="number-box">
               <img src="@/static/author.png" alt="" class="icon" />
-              <span class="telephone">13286754697</span>
+              <span class="telephone">132****4697</span>
             </div>
           </div>
         </div>
@@ -86,9 +86,9 @@
     <div class="bottom">
       <div class="title">最后的浮华只会迷乱你的眼</div>
       <div class="message">
-        <p>联系方式：13286754697</p>
-        <p>QQ：793117268@qq.com</p>
-        <p>邮箱：793117268@qq.com</p>
+        <p>联系方式：132****4697</p>
+        <p>QQ：793***268@qq.com</p>
+        <p>邮箱：793***268@qq.com</p>
         <p class="lasttxt">gitHub地址：https://github.com/xxljunjun/</p>
         <div class="thanks">
           <div class="radioBox">Think You For Watch</div>
