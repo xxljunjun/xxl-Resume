@@ -3,10 +3,20 @@ const path = require('path')
 function resolve(dir) {
 	return path.join(__dirname, dir)
 }
+// 线上打包路径，请根据项目实际线上情况(加时间戳)
+const Version = new Date().getTime()
+let publicPath = './'
+switch (process.env.NODE_ENV) {
+	case 'dev':
+		publicPath = './'
+		break
+	case 'testus':
+		publicPath = 'https://db3imdgpgx2uh.cloudfront.net'
+}
 module.exports = {
-	publicPath: './',
+	publicPath: publicPath,
 	// 将构建好的文件输出到哪里
-	outputDir: 'dist/static',
+	outputDir: 'dist',
 
 	// 放置生成的静态资源(js、css、img、fonts)的目录。
 	assetsDir: 'static',
@@ -31,47 +41,51 @@ module.exports = {
 		extract: true,
 		sourceMap: true,
 	},
-	chainWebpack: config => {
+	chainWebpack: (config) => {
+		//cdn中js加时间戳
+		config.output.filename('js/[name].[hash].' + Version + '.js').end()
+		config.output.chunkFilename('js/[name].[hash].' + Version + '.js').end()
+		//配置标题
+		config.plugin('html').tap((args) => {
+			args[0].title = '小溪流的个人简历'
+			return args
+		})
 		// 配置别名
-		config.resolve.alias
-			.set('@', resolve('src'))
+		config.resolve.alias.set('@', resolve('src'))
 	},
 
-	configureWebpack: (config) => {
-
-	},
+	configureWebpack: (config) => { },
 
 	// 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
 	parallel: require('os').cpus().length > 1,
 	// 向 PWA 插件传递选项。
 	// https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
-	pwa: {
-
-	},
+	pwa: {},
 	devServer: {
 		host: '0.0.0.0',
-		port: 8888, // 端口号
-		hot: true,//启用本地node服务中的socket长连接来实时通信
+		port: 8088, // 端口号
+		hot: true, //启用本地node服务中的socket长连接来实时通信
 		https: false, // https:{type:Boolean}
 		open: false, // 配置自动启动浏览器  open: 'Google Chrome'-默认启动谷歌
 		// 配置多个代理
 		proxy: {
 			'/api': {
-				target: 'https://www.mock.com',
+				target: 'http://autel-cloud-gateway-dev.autel.com',
+				// target: 'http://autel-cloud-gateway-testus.autel.com',
 				ws: true, // 代理的WebSockets
 				changeOrigin: true, // 允许websockets跨域
 				pathRewrite: {
-					'^/api': ''
-				}
+					'^/api': '',
+				},
 			},
 			'/he': {
 				target: 'https://way.jd.com',
 				ws: true, // 代理的WebSockets
 				changeOrigin: true, // 允许websockets跨域
 				pathRewrite: {
-					'^/api': ''
-				}
-			}
-		}
-	}
+					'^/api': '',
+				},
+			},
+		},
+	},
 }

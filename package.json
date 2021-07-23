@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "vue-cli-service serve --mode dev",
+    "testus": "vue-cli-service serve --mode testus",
+    "build:dev": "vue-cli-service build --mode dev",
+    "build:testus": "vue-cli-service build --mode testus",
     "lint": "vue-cli-service lint",
-    "start": "npm run serve"
+    "start": "npm run dev"
   },
   "dependencies": {
     "axios": "^0.21.1",
