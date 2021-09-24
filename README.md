@@ -95,3 +95,6 @@ Vue.prototype.$i18nMsg = i18n.messages[i18n.locale] //挂载上去this.$i18nMsg.
 zh.js
 en.js
 //this.$i18n.locale = this.$i18n.locale === 'zh' ? 'en' : 'zh'
+
+
+#9fa4f5

@@ -17,19 +17,19 @@
           </div>
           <div class="nav-right">
             <div class="qq-box">
-              <img src="@/static/author.png" alt="" class="icon" />
-              <span class="qq">793***268@qq.com</span>
+              <img src="@/static/home/email.png" alt="" class="icon" />
+              <span class="qq">xxl15363272121@163.com</span>
             </div>
             <div class="number-box">
-              <img src="@/static/author.png" alt="" class="icon" />
-              <span class="telephone">132****4697</span>
+              <img src="@/static/home/phone.png" alt="" class="icon" />
+              <span class="telephone">13286754697</span>
             </div>
           </div>
         </div>
       </div>
       <div class="header-bottom">
         <div class="author">
-          <img src="@/static/author.png" alt="" class="author-img" />
+          <img src="@/static/home/man.jpg" alt="" class="author-img" />
         </div>
         <p class="ch">天行健，君子以自强不息；地势坤，君子以厚德载物。</p>
         <p class="en">
@@ -48,7 +48,7 @@
           <p>学历：本科</p>
           <p>职业：前端工程师</p>
           <p>年龄：23</p>
-          <p>经验：2-3年工作经验</p>
+          <p>经验：2年工作经验</p>
           <p>技能：嗯，下拉详情</p>
         </div>
       </div>
@@ -68,7 +68,7 @@
       </div>
       <div class="software">
         <div class="item" v-for="(item, index) in skillArr2" :key="index">
-          <img src="@/assets/logo.png" alt="" class="skill-img" />
+          <img :src="item.src" alt="" class="skill-img" />
         </div>
       </div>
       <div class="case">
@@ -80,16 +80,16 @@
           <div class="txt">{{ item.title }}</div>
         </div>
       </div>
-      <div class="path">gitHub地址：https://github.com/xxljunjun/</div>
+      <div class="path" @click="goToGithub">gitHub地址：https://github.com/xxljunjun</div>
     </div>
     <!-- 联系方式 -->
     <div class="bottom">
-      <div class="title">最后的浮华只会迷乱你的眼</div>
+      <!-- <div class="title">最后的浮华只会迷乱你的眼</div> -->
       <div class="message">
-        <p>联系方式：132****4697</p>
-        <p>QQ：793***268@qq.com</p>
-        <p>邮箱：793***268@qq.com</p>
-        <p class="lasttxt">gitHub地址：https://github.com/xxljunjun/</p>
+        <p>联系方式：13286754697</p>
+        <p>QQ：793117268</p>
+        <p>邮箱：xxl15363272121@163.com</p>
+        <p class="lasttxt">简书：小溪流jun</p>
         <div class="thanks">
           <div class="radioBox">Think You For Watch</div>
           <div class="radioBox radioBox2"></div>
@@ -104,10 +104,10 @@ export default {
   data() {
     return {
       navArr: [
-        { id: 1, name: '首页HOME' },
-        { id: 2, name: '关于ABOUT' },
-        { id: 3, name: '技能SKILL' },
-        { id: 4, name: '联系CONTACT' },
+        { id: 1, name: 'HOME' },
+        { id: 2, name: 'ABOUT' },
+        { id: 3, name: 'SKILL' },
+        { id: 4, name: 'CONTACT' },
       ],
       skillArr: [
         { id: 1, name: 'Vue ,', color: '#82ae67' },
@@ -117,25 +117,28 @@ export default {
         { id: 6, name: 'Hybrid', color: '#f9a304' },
       ],
       skillArr2: [
-        { id: 1, name: 'Vue ,', color: '#82ae67' },
-        { id: 2, name: 'React ,', color: '#3e6193' },
-        { id: 3, name: 'Node ,', color: '#902f80' },
-        { id: 4, name: 'Webpack ,', color: '#f80000' },
-        { id: 5, name: 'Uniapp ,', color: '#4e4d84' },
-        { id: 6, name: 'Hybrid', color: '#f9a304' },
+        { id: 1, name: 'Vue ,', color: '#82ae67',src:require('../../assets/logo.png') },
+        { id: 2, name: 'React ,', color: '#3e6193',src:require('../../assets/logo_1.png')  },
+        { id: 3, name: 'Node ,', color: '#902f80',src:require('../../assets/logo_2.jpg')  },
+        { id: 4, name: 'Webpack ,', color: '#f80000',src:require('../../assets/logo_3.jpg')  },
+        { id: 5, name: 'Uniapp ,', color: '#4e4d84',src:require('../../assets/logo_4.jpg')  },
+        { id: 6, name: 'Hybrid', color: '#f9a304',src:require('../../assets/logo_5.jpg')  },
       ],
       demoArr: [
-        { id: 1, path: require('../../static/price.png'), title: '11111' },
-        { id: 2, path: require('../../static/price.png'), title: '11111' },
-        { id: 3, path: require('../../static/price.png'), title: '11111' },
-        { id: 4, path: require('../../static/price.png'), title: '11111' },
-        { id: 5, path: require('../../static/price.png'), title: '11111' },
-        { id: 6, path: require('../../static/price.png'), title: '11111' },
+        { id: 1, path: require('../../static/home/xxl_1.jpg'), title: '电池报告管理' },
+        { id: 2, path: require('../../static/home/xxl_2.png'), title: 'realFix-pc端' },
+        { id: 3, path: require('../../static/home/xxl_3.png'), title: 'realFix-pad端' },
+        { id: 4, path: require('../../static/home/xxl_4.png'), title: '冲榜活动' },
+        { id: 5, path: require('../../static/home/xxl_5.png'), title: '运营后台' },
+        { id: 6, path: require('../../static/home/xxl_6.png'), title: 'PC官网' },
       ],
     }
   },
   mounted() {},
   methods: {
+    goToGithub(){
+      window.location.href = 'https://github.com/xxljunjun'; 
+    },
     gotoPage(id) {
       //scrollIntoView的属性
       let ele = ''
@@ -167,8 +170,9 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  width: 1200px;
+  // width: 1200px;
   color: #fff;
+  margin: 0 auto;
   .topimg {
     position: fixed;
     width: 100%;
@@ -177,16 +181,21 @@ export default {
     top: 0;
   }
   .header {
-    width: 1200px;
-    height: 490px;
-    background: #595c8f;
+    // width: 1200px;
+    // margin: 0 auto;
+    // height: 490px;
+    // background: #595c8f;
     box-sizing: border-box;
+    // background: #00FF00 url('../../static/home/img_1.jpg') no-repeat fixed top;
     .nav {
       position: fixed;
       top: 0;
       background: #595c8f;
-      width: 1200px;
+      // width: 1200px;
+      width: 100%;
       z-index: 99;
+      // border-bottom: 3px solid #9fa4f5;
+      box-shadow: 10px 0 5px #9fa4f5;
     }
     .nav-inner {
       display: flex;
@@ -221,9 +230,9 @@ export default {
           flex-direction: row;
           align-items: center;
           .icon {
-            height: 24px;
+            // height: 24px;
             width: 24px;
-            margin-right: 4px;
+            margin-right: 10px;
           }
           .qq {
             color: #fff;
@@ -237,7 +246,7 @@ export default {
             color: #fff;
           }
           .icon {
-            margin-right: 4px;
+            margin-right: 10px;
             height: 24px;
             width: 24px;
           }
@@ -245,19 +254,23 @@ export default {
       }
     }
     .header-bottom {
+     background: #595c8f;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 410px;
+      width: 1200px;
+      margin: 0 auto;
       .author {
         height: 160px;
         width: 160px;
         overflow: hidden;
         border-radius: 50%;
         margin-bottom: 35px;
+        margin-top: 50px;
         .author-img {
-          height: 160px;
+          // height: 160px;
           width: 160px;
         }
       }
@@ -266,15 +279,18 @@ export default {
         font-size: 24px;
         line-height: 26px;
         margin-bottom: 6px;
+         text-align: center;
       }
       .en {
         color: #fff;
         font-size: 14px;
         line-height: 20px;
+        text-align: center;
       }
     }
   }
   .box {
+    margin: 0 auto;
     width: 1200px;
     height: 490px;
     background: #9fa4f5;
@@ -295,6 +311,7 @@ export default {
     }
   }
   .main {
+    margin: 0 auto;
     width: 1200px;
     height: 1020px;
     background: #e3e4f8;
@@ -399,14 +416,16 @@ export default {
     }
     .path {
       margin-left: 100px;
-      font-size: 18px;
+      font-size: 24px;
       color: #58568a;
+      cursor: pointer;
     }
   }
   .bottom {
+    margin: 0 auto;
+    background: #595c8f;
     width: 1200px;
     height: 390px;
-    background: url(~@/static/building_2.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 1200px 390px;
@@ -420,7 +439,7 @@ export default {
       left: 680px;
       top: 10px;
       font-size: 26px;
-      color: #595c8f;
+      color: #9fa4f5;
     }
     .message {
       margin-top: 70px;
