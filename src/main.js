@@ -9,9 +9,11 @@ import "@/style/vant.scss"
 Vue.prototype.$i18nMsg = i18n.messages[i18n.locale] //挂载上去this.$i18nMsg.xxx去访问
 console.log("当前环境是", process.env)
 Vue.use(Lazyload);
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
+
+import 'element-ui/lib/theme-chalk/index.css'
+import { Carousel } from 'element-ui';
+Vue.use(Carousel)
+// Vue.component(Carousel.name, Carousel);
 
 Vue.config.productionTip = false
 new Vue({
