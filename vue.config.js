@@ -5,23 +5,23 @@ function resolve(dir) {
 }
 // 线上打包路径，请根据项目实际线上情况(加时间戳)
 const Version = new Date().getTime();
-let publicPath = "./";
-switch (process.env.NODE_ENV) {
-  case "dev":
-    publicPath = "./";
-    break;
-  case "testus":
-    publicPath = "https://db3imdgpgx2uh.cloudfront.net";
-}
+// let publicPath = "./";
+// switch (process.env.NODE_ENV) {
+//   case "dev":
+//     publicPath = "./";
+//     break;
+//   case "testus":
+//     publicPath = "https://db3imdgpgx2uh.cloudfront.net";
+// }
 // 引入打包体积可视化
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  // .BundleAnalyzerPlugin;
 //gzip(需要配合nginx配置)
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const productionGzipExtensions = ["js", "css"];
 const isProduction = process.env.NODE_ENV === "production";
 module.exports = {
-  publicPath: publicPath,
+  publicPath: '/',
   // 将构建好的文件输出到哪里
   outputDir: "dist",
 
@@ -60,7 +60,7 @@ module.exports = {
     // 配置别名
     config.resolve.alias.set("@", resolve("src"));
     // 展示图形化信息(上线钱注释掉)
-    config.plugin("webpack-bundle-analyzer").use(BundleAnalyzerPlugin);
+    // config.plugin("webpack-bundle-analyzer").use(BundleAnalyzerPlugin);
   },
   configureWebpack: (config) => {
     if (isProduction) {

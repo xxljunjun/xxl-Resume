@@ -7,7 +7,9 @@ import routes from './pages/'
 
 
 const router =new VueRouter({
-    mode:'hash',
+    // mode:'hash',
+    mode:'history',
+    base:'/',
     routes:[
         ...routes,
         {path:'/*',redirect:'/'}
