@@ -20,8 +20,6 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const productionGzipExtensions = ["js", "css"];
 const isProduction = process.env.NODE_ENV === "production";
-//css
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   publicPath: publicPath,
   // 将构建好的文件输出到哪里

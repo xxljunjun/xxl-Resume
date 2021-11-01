@@ -76,6 +76,7 @@ Vue.prototype.$i18nMsg = i18n.messages[i18n.locale] //挂载上去 this.\$i18nMs
   //this.$i18n.locale = this.$i18n.locale === 'zh' ? 'en' : 'zh'
 
 # 八、打包优化
++ npm install webpack-bundle-analyzer --save-dev
 
 - compression-webpack-plugin （1.4m==>800kb）需要配合 nginx 配置
 
