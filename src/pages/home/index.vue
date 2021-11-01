@@ -41,9 +41,8 @@
     </div>
     <!-- 个人信息 -->
     <div class="box">
-       <img src="@/static/home/katongman.png" alt="" class="catongman">
+      <img src="@/static/home/katongman.png" alt="" class="catongman" />
       <div class="preson">
-       
         <p class="introduce">简介 introduction</p>
         <div class="resume">
           <p>廖军军</p>
@@ -202,22 +201,25 @@ export default {
     gotoIframe(id) {
       switch (id) {
         case 1:
-           window.location.href = "http://autel-cloud-battery-mgr-front-testus.autel.com";
+          window.location.href =
+            "http://autel-cloud-battery-mgr-front-testus.autel.com";
           break;
         case 2:
-           window.location.href = "http://accufix.autel.com/home";
+          window.location.href = "http://accufix.autel.com/home";
           break;
         case 3:
-           window.location.href = "http://autel-device-app-pad-prod.autel.com";
+          window.location.href = "http://autel-device-app-pad-prod.autel.com";
           break;
         case 4:
-           window.location.href = "http://autel-inspection-realfix-activity-testus-origin.autel.com/#/";
+          window.location.href =
+            "http://autel-inspection-realfix-activity-testus-origin.autel.com/#/";
           break;
         case 5:
-           window.location.href = "https://management-frontend-testus.autel.com/login"
+          window.location.href =
+            "https://management-frontend-testus.autel.com/login";
           break;
         case 6:
-          this.$router.push('/beauty')
+          this.$router.push("/beauty");
           break;
       }
     },
@@ -300,7 +302,7 @@ export default {
           color: #fff;
           font-size: 14px;
           cursor: pointer;
-          &:hover{
+          &:hover {
             text-decoration: underline;
           }
           &:last-child {
@@ -383,17 +385,17 @@ export default {
     height: 490px;
     background: #9fa4f5;
     position: relative;
-    .catongman{
-        position: absolute;
-        left: 100px;
-        bottom: 20px;
-        height: 450px;
-      }
+    .catongman {
+      position: absolute;
+      left: 100px;
+      bottom: 20px;
+      height: 450px;
+    }
     .preson {
       position: absolute;
       left: 680px;
       font-size: 26px;
-      
+
       .introduce {
         margin: 10px 0 80px;
         color: #595c8f;
@@ -424,14 +426,14 @@ export default {
       justify-content: center;
       padding-top: 110px;
       margin-bottom: 60px;
-      
+
       .item {
         margin-right: 15px;
         font-size: 26px;
-        cursor:default;
-        &:hover{
-        transform: scale(1.2);
-      }
+        cursor: default;
+        &:hover {
+          transform: scale(1.2);
+        }
       }
     }
     .software {
@@ -449,7 +451,7 @@ export default {
         .skill-img {
           height: 90px;
           width: 90px;
-          &:hover{
+          &:hover {
             transform: scale(1.2);
           }
         }
