@@ -10,7 +10,7 @@ export default new Vuex.Store({
             { id: 1, text: '...', done: true },
             { id: 2, text: '...', done: false }
         ],
-        token: "111111111111111111111111"
+        token: "123"
     },
     getters: {
         // getters相当于组件的计算属性，它与state相关，当它所关系的state变量发生变化时，会自动重新计算

@@ -1,25 +1,18 @@
-// vue.config.js
+const defaultSettings = require('./src/settings.js')
 const path = require("path");
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
+const {title,isAnalyzerPlugin} = defaultSettings
+const name = title || '小溪流' 
 // 线上打包路径，请根据项目实际线上情况(加时间戳)
 const Version = new Date().getTime();
-// let publicPath = "./";
-// switch (process.env.NODE_ENV) {
-//   case "dev":
-//     publicPath = "./";
-//     break;
-//   case "testus":
-//     publicPath = "https://db3imdgpgx2uh.cloudfront.net";
-// }
 // 引入打包体积可视化
-// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  // .BundleAnalyzerPlugin;
+  const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 //gzip(需要配合nginx配置)
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const productionGzipExtensions = ["js", "css"];
-const isProduction = process.env.NODE_ENV === "production";
 module.exports = {
   publicPath: '/',
   // 将构建好的文件输出到哪里
@@ -40,12 +33,10 @@ module.exports = {
   // 生产环境关闭 source map
   productionSourceMap: false,
 
-  // lintOnSave: true,
-
   // 配置css
   css: {
     // 是否使用css分离插件 ExtractTextPlugin
-    extract: false, //开启会影响热跟新
+    extract: false, //开启会影响热更新
     sourceMap: true,
   },
   chainWebpack: (config) => {
@@ -54,16 +45,17 @@ module.exports = {
     config.output.chunkFilename("js/[name].[hash]." + Version + ".js").end();
     //配置标题
     config.plugin("html").tap((args) => {
-      args[0].title = "小溪流的个人简历";
+      args[0].title = name;
       return args;
     });
     // 配置别名
     config.resolve.alias.set("@", resolve("src"));
     // 展示图形化信息(上线钱注释掉)
-    // config.plugin("webpack-bundle-analyzer").use(BundleAnalyzerPlugin);
+    if(isAnalyzerPlugin){
+      config.plugin("webpack-bundle-analyzer").use(BundleAnalyzerPlugin);
+    }
   },
   configureWebpack: (config) => {
-    if (isProduction) {
       config.plugins.push(
         new CompressionWebpackPlugin({
           algorithm: "gzip",
@@ -72,7 +64,6 @@ module.exports = {
           minRatio: 0.8,
         })
       );
-    }
   },
   // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
   parallel: require("os").cpus().length > 1,

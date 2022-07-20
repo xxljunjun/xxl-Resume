@@ -17,11 +17,11 @@
           </div>
           <div class="nav-right">
             <div class="qq-box">
-              <img src="@/static/home/email.png" alt="" class="icon" />
+              <img src="@/assets/email.png" alt="" class="icon" />
               <span class="qq">xxl15363272121@163.com</span>
             </div>
             <div class="number-box">
-              <img src="@/static/home/phone.png" alt="" class="icon" />
+              <img src="@/assets/phone.png" alt="" class="icon" />
               <span class="telephone">13286754697</span>
             </div>
           </div>
@@ -29,7 +29,7 @@
       </div>
       <div class="header-bottom">
         <div class="author">
-          <img src="@/static/home/man.jpg" alt="" class="author-img" />
+          <img src="@/assets/man.jpg" alt="" class="author-img" />
         </div>
         <p class="ch">天行健，君子以自强不息；地势坤，君子以厚德载物。</p>
         <p class="en">
@@ -41,7 +41,7 @@
     </div>
     <!-- 个人信息 -->
     <div class="box">
-      <img src="@/static/home/katongman.png" alt="" class="catongman" />
+      <img src="@/assets/katongman.png" alt="" class="catongman" />
       <div class="preson">
         <p class="introduce">简介 introduction</p>
         <div class="resume">
@@ -129,68 +129,68 @@ export default {
           id: 1,
           name: "Vue ,",
           color: "#82ae67",
-          src: require("../../assets/logo.png"),
+          src: require("@/assets/logo.png"),
         },
         {
           id: 2,
           name: "React ,",
           color: "#3e6193",
-          src: require("../../assets/logo_1.png"),
+          src: require("@/assets/logo_1.png"),
         },
         {
           id: 3,
           name: "Node ,",
           color: "#902f80",
-          src: require("../../assets/logo_2.jpg"),
+          src: require("@/assets/logo_2.jpg"),
         },
         {
           id: 4,
           name: "Webpack ,",
           color: "#f80000",
-          src: require("../../assets/logo_3.jpg"),
+          src: require("@/assets/logo_3.jpg"),
         },
         {
           id: 5,
           name: "Uniapp ,",
           color: "#4e4d84",
-          src: require("../../assets/logo_4.jpg"),
+          src: require("@/assets/logo_4.jpg"),
         },
         {
           id: 6,
           name: "Hybrid",
           color: "#f9a304",
-          src: require("../../assets/logo_5.jpg"),
+          src: require("@/assets/logo_5.jpg"),
         },
       ],
       demoArr: [
         {
           id: 1,
-          path: require("../../static/home/xxl_1.jpg"),
+          path: require("@/assets/xxl_1.jpg"),
           title: "电池报告管理",
         },
         {
           id: 2,
-          path: require("../../static/home/xxl_2.png"),
+          path: require("@/assets/xxl_2.png"),
           title: "realFix-pc端",
         },
         {
           id: 3,
-          path: require("../../static/home/xxl_3.png"),
+          path: require("@/assets/xxl_3.png"),
           title: "realFix-pad端",
         },
         {
           id: 4,
-          path: require("../../static/home/xxl_4.png"),
+          path: require("@/assets/xxl_4.png"),
           title: "冲榜活动",
         },
         {
           id: 5,
-          path: require("../../static/home/xxl_5.png"),
+          path: require("@/assets/xxl_5.png"),
           title: "运营后台",
         },
         {
           id: 6,
-          path: require("../../static/home/xxl_6.png"),
+          path: require("@/assets/xxl_6.png"),
           title: "PC官网",
         },
       ],

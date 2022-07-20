@@ -1,21 +1,14 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router"; //配置路由
-import { Lazyload } from "vant"; //配置懒加载
 import store from "@/store/";
-import i18n from "@/utils/i18n";
 import "@/style/common.scss"; //引入全局样式
-Vue.prototype.$i18nMsg = i18n.messages[i18n.locale]; //挂载上去this.$i18nMsg.xxx去访问
-console.log("当前环境是", process.env);
-Vue.use(Lazyload);
-
 //按需引入element
 import "element-ui/lib/theme-chalk/index.css";
-import { Carousel, CarouselItem } from "element-ui";
-Vue.use(Carousel);
-Vue.use(CarouselItem);
-
-// Vue.component(Carousel.name, Carousel);
+import ElementUI from 'element-ui';
+import '@/style/element-variables.scss'
+import i18n from './lang'  //国际化
+Vue.use(ElementUI);
 
 Vue.config.productionTip = false;
 new Vue({
