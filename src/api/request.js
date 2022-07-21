@@ -4,7 +4,7 @@ import store from "@/store/index.js"
 //生产环境
 //测试环境
 //开发环境
-const baseURL = "http://localhost:8888"//要是跨域的话，就请求本地服务器跳转到vue.config.js解决跨域问题
+const baseURL = "http://localhost:3000"//要是跨域的话，就请求本地服务器跳转到vue.config.js解决跨域问题
 
 //c创建一个axios实例
 const instance = axios.create({
